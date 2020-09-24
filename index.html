@@ -57,7 +57,7 @@
 				return i * BAR_WIDTH;
 			});
 			
-			rectangles.attr('height', energyProduction)
+			rectangles.attr('height', function(d)
 			{
 				return (d / maxValue) * MAX_BAR_HEIGHT;
 			});
