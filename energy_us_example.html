@@ -43,9 +43,13 @@
 			
 
 			var maxValue = d3.max(energyProduction);
+			
 			console.log(maxValue);
+			
 			var selection = d3.select('svg').select('g').selectAll('rect').data(energyProduction);
-			var rectangles = selection.enter().append('rect');
+			
+			var rectangles = selection.enter{}.append('rect');
+			
 			rectangles.attr('width', BAR_WIDTH)
 			rectangles.attr('height', energyProduction){
 				return (d / maxValue) * MAX_BAR_HEIGHT;
