@@ -48,16 +48,22 @@
 			
 			var selection = d3.select('svg').select('g').selectAll('rect').data(energyProduction);
 			
-			var rectangles = selection.enter{}.append('rect');
+			var rectangles = selection.enter().append('rect');
 			
 			rectangles.attr('width', BAR_WIDTH)
-			rectangles.attr('height', energyProduction){
+			
+			rectangles.attr('x',function(d, i) 
+			{
+				return i * BAR_WIDTH;
+			})
+			
+			rectangles.attr('height', energyProduction)
+			{
 				return (d / maxValue) * MAX_BAR_HEIGHT;
 			});
-			rectangles.attr('x',function(d, i) {
-				return i * BAR_WIDTH;
-			});
-			rectangles.attr('y', function(d) {
+
+			rectangles.attr('y', function(d) 
+			{
 				return (1 - (d / maxValue)) * MAX_BAR_HEIGHT;
 			});
 		}
