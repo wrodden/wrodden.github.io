@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<title></title>
+</head>
+<body>
+<svg width="400" height="200">
+		<line x1="40" y1="150" x2="220" y2="150" stroke="black" />
+		<line x1="40" y1="0" x2="46" y2="150" stroke="black" />
+		<rect id="bar1" x="50" y="50" width="30" height="100" fill="blue"> </rect>
+		<text x="53" y="160" font-size="8">V</text>
+		<rect id="bar2" x="92" y="50" width="30" height="100" fill="blue"> </rect>
+		<text x="89" y="160" font-size="8">B</text>
+		<rect id="bar3" x="134" y="50" width="30" height="100" fill="blue"> </rect>
+		<text x="125" y="160" font-size="8">C</text>
+</svg>
+<script>
+	var CHART_HEIGHT = 130;
+	var pets =[45,21,102]
+	
+	var selection = d3.select('svg').selectAll('rect').data(pets)
+	
+	selection.attr('height', function(d)
+	{
+		console.log('changing height to: ' + d);
+		return (d/102) * CHART_HEIGHT;
+	});
+	
+	selection.attr('y', function(d) {
+		return CHART_HEIGHT - (d/102 * CHART_HEIGHT);
+	});
+	
+</script>
+</body>
+</html>
