@@ -26,7 +26,7 @@
 <body>
 
 	<svg id="main" width="600" height="600">
-		<text id='label' x='20' y='20'>Energy prodcution for the US</text>
+		<text id='label' x='20' y='20'>London's 1854 Epidemic</text>
 		<g transform="translate(20,40)"></g>
 	</svg>
 
@@ -48,7 +48,7 @@
 			
 			var selection = d3.select('svg').select('g').selectAll('rect').data(energyProduction);
 			
-			var rectangles = selection.enter().append('rect');
+			var rectangles = selection.enter().append('line');
 			
 			rectangles.attr('width', BAR_WIDTH)
 			
