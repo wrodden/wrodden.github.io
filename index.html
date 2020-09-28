@@ -67,13 +67,11 @@
 				return (1 - (d / maxValue)) * MAX_BAR_HEIGHT;
 			});
 		}
-
-		var path = d3.geo.path();
 		
 		d3.json("streets.json", function(json) {
 		
-			for (let key in json) {
-				console.log(key, json[key];
+			console.log(json);
+			lineFunction(json);
 			}
 			
 		});
