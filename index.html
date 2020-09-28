@@ -75,7 +75,10 @@
 			.data(json.features)
 			.enter()
 			.append("path")
-			.attr("d", path);
+			.attr("d", path)
+			.x(function(d) { return d.x; })
+			.y(function(d) { return height - d.y; })
+			.interpolate("linear");
 			
 		});
 		
