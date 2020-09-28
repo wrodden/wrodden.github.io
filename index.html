@@ -71,7 +71,9 @@
 		d3.json("streets.json", function(data) {
 			var dataStreets = data;
 			console.log(dataStreets);
+			return dataStreets;
 		});
+		
 		var lineFunction=d3.svg.line()
 				.x(function(d) { return d.x; })
 				.y(function(d) { return height - d.y; })
