@@ -75,13 +75,6 @@
 			
 		});
 		
-		var lineFunction=d3.svg.line()
-				.x(function(d) { return d.x; })
-				.y(function(d) { return height - d.y; })
-				.interpolate("linear");
-
-
-		lineFunction(dataStreets);
 		
 		d3.csv('energy_us.csv', function(data) 
 		{
