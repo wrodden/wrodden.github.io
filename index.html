@@ -67,11 +67,16 @@
 				return (1 - (d / maxValue)) * MAX_BAR_HEIGHT;
 			});
 		}
+
+		
+		d3.json("streets.json", function(json) {
+		
+			svg.selectAll("path")
+			.data(json.features)
+			.enter()
+			.append("path")
+			.attr("d", path);
 			
-		d3.json("streets.json", function(data) {
-			var dataStreets = data;
-			console.log(dataStreets);
-			return dataStreets;
 		});
 		
 		var lineFunction=d3.svg.line()
