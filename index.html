@@ -33,15 +33,47 @@
 	
 	<script>
 
-		
+		var BAR_WIDTH = 10;
+		var MAX_BAR_HEIGHT = 100;
+
+		var energyProduction = [];
+
+		function drawBarChart() 
+		{
+			
+
+			var maxValue = d3.max(energyProduction);
+			
+			console.log(maxValue);
+			
+			var selection = d3.select('svg').select('g').selectAll('rect').data(energyProduction);
+			
+			var rectangles = selection.enter().append('line');
+			
+			rectangles.attr('width', BAR_WIDTH)
+			
+			rectangles.attr('x',function(d, i) 
+			{
+				return i * BAR_WIDTH;
+			});
+			
+			rectangles.attr('height', function(d)
+			{
+				return (d / maxValue) * MAX_BAR_HEIGHT;
+			});
+
+			rectangles.attr('y', function(d) 
+			{
+				return (1 - (d / maxValue)) * MAX_BAR_HEIGHT;
+			});
+		}
 		
 		d3.json("streets.json", function(json) {
 		
 			console.log(json);
-			lineFunction(json);
 			}
 			
-		);
+		});
 		
 		var lineFunction=d3.svg.line()
 				.x(function(d) { return d.x; })
@@ -49,6 +81,22 @@
 				.interpolate("linear");
 
 
+		lineFunction(dataStreets);
+		
+		d3.csv('energy_us.csv', function(data) 
+		{
+			var record = data[0];
+
+			// loop through all years, from 1980 to 2012
+			for (var year=1980; year<=2012; year++) 
+			{
+				var value = record[year];	
+				energyProduction.push(+value);
+			}
+
+			drawBarChart();
+
+		});
 		
 	</script>
 </body>
