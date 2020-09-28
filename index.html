@@ -71,11 +71,21 @@
 		var draw_streets = function(json)
 		{
 		json.forEach(function(d){
+		
 		i=0
-		x_start=d[i].x
-		y_start=d[i].y
-		x_end=d[i+1].x
-		y_end=d[i+1].y
+		
+		let x_start=d[i].x
+		let y_start=d[i].y
+		let x_end=d[i+1].x
+		let y_end=d[i+1].y
+		
+		svg.append('line')
+			.style("stroke", "lightgreen")
+			.style("stroke-width", 10)
+			.attr("x1", x_start)
+			.attr("y1", y_start)
+			.attr("x2", x_end)
+			.attr("y2", y_end); 
 		});
 		};
 		
