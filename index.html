@@ -69,7 +69,8 @@
 		}
 			
 		d3.json("streets.json", function(data) {
-			var dataStreets = data;
+			dataStreets = data;
+			console.log(dataStreets);
 		});
 		var lineFunction=d3.svg.line()
 				.x(function(d) { return d.x; })
