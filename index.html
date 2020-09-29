@@ -69,7 +69,7 @@
 		var rectangles = svg.selectAll('rect').data(data);
 		
 		rectangles.enter().append('rect')
-			.attr('height', 3)
+			.attr('height', 1)
 			.attr('width', 3);
 		
 		rectangles.attr('x', function(d){return d.x * 50; })
