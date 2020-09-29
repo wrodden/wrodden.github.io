@@ -40,7 +40,6 @@
 
 	
 	<script>
-		var circle_data = [];
 		
 		function draw_circles()
 		{
@@ -66,15 +65,15 @@
 		
 		}
 		
-		d3.csv('pumps.csv', function(data) 
+		var circle_data = d3.csv('pumps.csv', function(data) 
 		{
-			circle_data.push(+data);
+			//circle_data.push(+data);
 			//console.log(circle_data)
 	
 			console.log(circle_data);
-			draw_circles();
 			
 		});
+		draw_circles();
 	</script>
 </body>
 
