@@ -40,25 +40,27 @@
 
 	
 	<script>
-		var circle_data = d3.csv('pumps.csv');
+		var circle_data_x = [];
+		
+		var circle_data_y = [];
 		
 		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
 		
 		var circles = selection.enter().append('circle');
 		
-		function draw_circles(circle_data)
+		function draw_circles()
 		{
 		
 		circles.attr('cx',function(d) 
 			{
-				return d.x * 50;
-				console.log(d.x)
+				return circle_data_x * 50;
+				console.log(circle_data_x)
 			});
 		
 		circles.attr('cy',function(d) 
 			{
-				return d.y * 50;
-				console.log(d.y)
+				return circle_data_y * 50;
+				console.log(circle_data_y)
 			});
 		
 		circles.attr('r', function()
@@ -68,15 +70,20 @@
 		
 		}
 		
-		//var circle_data = d3.csv('pumps.csv');//, function(data) 
-		//{
-			//data.forEach(function(circle_data)
-			//{
-				//circles.attr('cx', function(d)
+		var circle_data = d3.csv('pumps.csv');//, function(data) 
+		{
+			data.forEach(function(circle_data)
+			{
+				var x_var = circle_data.x;
+				var y_var = circle_data.y;
+				
+				
+				circle_data_x.push(+x_var);
+				circle_data_y.push(+y_var);
 
-			//});
-			//draw_circles();
-		//});
+			});
+			draw_circles();
+		});
 		console.log(circle_data);
 	</script>
 </body>
