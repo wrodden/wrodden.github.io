@@ -54,12 +54,11 @@
                       .enter()
                       .append("text");
 		
-		text.attr("x", function(d) { return d.x* 50-300; })
-			.attr("y", function(d) { return 1000 - (d.y * 50);})
-			.text( function () { return 'P'; })
+		text.attr("x", function(d) { return d.x* 50 - 303; })
+			.attr("y", function(d) { return 1000 + 3 - (d.y * 50);})
+			.text( function () { return 'p'; })
 			.attr("font-size", "5px")
 			.attr("fill", "white");
-		text.exit().remove();
 		};
 		
 		d3.csv('pumps.csv', function(myArrayOfObjects){
