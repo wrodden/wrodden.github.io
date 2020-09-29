@@ -42,8 +42,8 @@
 		circles.enter().append('circle')
 			.attr('r', 7);
 		
-		circles.attr('cx', function(d){return d.x* 50 - 300; })
-			.attr('cy', function(d){return 1000 - (d.y * 50);});
+		circles.attr('cx', function(d){return d.x/17.93893 * 700; })
+			.attr('cy', function(d){return 1000 - (d.y/16.97276 * 1000);});
 		
 		circles.exit().remove();
 		
@@ -54,8 +54,8 @@
                       .enter()
                       .append("text");
 		
-		text.attr("x", function(d) { return d.x* 50 - 304; })
-			.attr("y", function(d) { return 1000 + 5 - (d.y * 50);})
+		text.attr("x", function(d) { return d.x/17.93893 * 700 - 4; })
+			.attr("y", function(d) { return 1000 + 5 - (d.y/16.97276 * 1000);})
 			.text( function () { return 'P'; })
 			.style("font-size", "12px")
 			.attr("fill", "white");
@@ -76,8 +76,8 @@
 			.attr('height', 3)
 			.attr('width', 3);
 		
-		rectangles.attr('x', function(d){return d.x * 50-300; })
-			.attr('y', function(d){return 1000 - (d.y * 50);});
+		rectangles.attr('x', function(d){return d.x/17.93893 * 700; })
+			.attr('y', function(d){return 1000 - (d.y/16.97276 * 1000);});
 		
 		rectangles.exit().remove();
 		
