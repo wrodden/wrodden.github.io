@@ -77,9 +77,24 @@
 		circles.attr('r', function()
 			{
 				return 10;
-			}
+			});
 		
 		}
+		
+		d3.csv('pumps.csv', function(data) 
+		{
+			var record = data[0];
+
+			// loop through all years, from 1980 to 2012
+			for (var year=1980; year<=2012; year++) 
+			{
+				var value = record[year];	
+				circle_data.push(+value);
+			}
+
+			drawBarChart();
+
+		});
 	</script>
 </body>
 
