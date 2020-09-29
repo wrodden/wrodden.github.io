@@ -40,6 +40,8 @@
 
 	
 	<script>
+		var circle_data = d3.csv('pumps.csv');
+		
 		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
 		
 		var circles = selection.enter().append('circle');
@@ -66,7 +68,7 @@
 		
 		}
 		
-		var circle_data = d3.csv('pumps.csv');//, function(data) 
+		//var circle_data = d3.csv('pumps.csv');//, function(data) 
 		//{
 			//data.forEach(function(circle_data)
 			//{
