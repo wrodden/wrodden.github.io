@@ -58,7 +58,7 @@
 			.attr("y", function(d) { return 1000 + 5 - (d.y * 50);})
 			.text( function () { return 'P'; })
 			.style("font-size", "20px")
-			.attr("fill", "white");
+			.style("color", "white");
 		};
 		
 		d3.csv('pumps.csv', function(myArrayOfObjects){
