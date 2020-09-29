@@ -43,7 +43,7 @@
 
 		function draw_circles(data)
 		{
-		
+		var svg = d3.select('svg').select('g')
 		var circles = svg.selectAll('circle').data(data);
 		
 		circles.enter().append('circle')
@@ -54,7 +54,7 @@
 		
 		circles.exit().remove();
 		
-		}
+		};
 		
 		d3.csv('pumps.csv', function(myArrayOfObjects){
 		draw_circles(myArrayOfObjects);
