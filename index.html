@@ -64,14 +64,14 @@
 		
 		var circles = selection.enter().append('circle');
 		
-		circles.attr('x',function(d, i) 
+		circles.attr('cx',function(d) 
 			{
-				return d;
+				return d.x;
 			});
 		
-		circles.attr('y',function(d, i) 
+		circles.attr('cy',function(d) 
 			{
-				return i;
+				return d.y;
 			});
 		
 		circles.attr('r', function()
@@ -83,14 +83,9 @@
 		
 		d3.csv('pumps.csv', function(data) 
 		{
-			var record = data[1];
+			var circle_data = data;
 
-			// loop through all years, from 1980 to 2012
-			for (var year=0; year<=13; year++) 
-			{
-				var value = record[year];	
-				circle_data.push(+value);
-			}
+			return circle_data
 
 			drawBarChart();
 
