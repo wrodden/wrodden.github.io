@@ -40,8 +40,8 @@
 		var rectangles = svg.selectAll('rect').data(data);
 		
 		rectangles.enter().append('rect')
-			.attr('height', 2)
-			.attr('width', 5);
+			.attr('height', 3)
+			.attr('width', 3);
 		
 		rectangles.attr('x', function(d){return d.x * 20; })
 			.attr('y', function(d){return 500 - (d.y * 20);});
