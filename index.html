@@ -83,10 +83,10 @@
 		
 		d3.csv('pumps.csv', function(data) 
 		{
-			var record = data[0];
+			var record = data[1];
 
 			// loop through all years, from 1980 to 2012
-			for (var year=1980; year<=2012; year++) 
+			for (var year=0; year<=13; year++) 
 			{
 				var value = record[year];	
 				circle_data.push(+value);
