@@ -44,7 +44,7 @@
 			.attr('r', 10);
 		
 		circles.attr('cx', function(d){return d.x * 20; })
-			.attr('cy', function(d){return d.y * 20;});
+			.attr('cy', function(d){return 500 - (d.y * 20);});
 		
 		circles.exit().remove();
 		
