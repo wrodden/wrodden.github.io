@@ -40,9 +40,8 @@
 
 	
 	<script>
-		var circle_data = [];
 		
-		function draw_circles()
+		function draw_circles(circle_data)
 		{
 		
 		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
@@ -70,11 +69,10 @@
 		{
 			data.forEach(function(circle_data)
 			{
-				draw_circles();
-				console.log(circle_data);
+				draw_circles(circle_data);
 			//console.log(circle_data)
 			});
-			
+			//draw_circles();
 		});
 	</script>
 </body>
