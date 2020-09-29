@@ -34,9 +34,6 @@
 	<script>
 		function draw_circles(data)
 		{
-		var x_coord = function(d){d * 50 - 300};
-		
-		var y_coord = function(d){1000- (d*50)};
 		
 		var svg = d3.select('svg').select('g')
 		
@@ -45,7 +42,7 @@
 		circles.enter().append('circle')
 			.attr('r', 6);
 		
-		circles.attr('cx', function(d){return x_coord(d.x); })
+		circles.attr('cx', function(d){return d.x* 50 - 300; })
 			.attr('cy', function(d){return 1000 - (d.y * 50);});
 		
 		circles.exit().remove();
