@@ -32,6 +32,27 @@
 
 	
 	<script>
+		function draw_circles(data)
+		{
+		
+		var svg = d3.select('svg').select('g')
+		
+		var circles = svg.selectAll('circle').data(data);
+		
+		circles.enter().append('circle')
+			.attr('r', 10);
+		
+		circles.attr('cx', function(d){return d.x * 25; })
+			.attr('cy', function(d){return 500 - (d.y * 25);});
+		
+		circles.exit().remove();
+		
+		};
+		
+		d3.csv('pumps.csv', function(myArrayOfObjects){
+			draw_circles(myArrayOfObjects);
+		});
+	
 		function death_rectangles(data)
 		{
 		
@@ -54,26 +75,7 @@
 			death_rectangles(myArrayOfObjects);
 		});
 		
-		function draw_circles(data)
-		{
 		
-		var svg = d3.select('svg').select('g')
-		
-		var circles = svg.selectAll('circle').data(data);
-		
-		circles.enter().append('circle')
-			.attr('r', 10);
-		
-		circles.attr('cx', function(d){return d.x * 20; })
-			.attr('cy', function(d){return 500 - (d.y * 20);});
-		
-		circles.exit().remove();
-		
-		};
-		
-		d3.csv('pumps.csv', function(myArrayOfObjects){
-			draw_circles(myArrayOfObjects);
-		});
 	</script>
 </body>
 
