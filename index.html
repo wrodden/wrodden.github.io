@@ -51,10 +51,11 @@
 		function draw_circles(data)
 		{
 		
-		var circles = svg.selectAll('circle').data(data)
+		var circles = svg.selectAll('circle').data(data);
 		
-		circles.enter().append('circle).attr('r', 10);
-			
+		circles.enter().append('circle')
+			.attr('r', 10);
+		
 		circles.attr('cx', function(d){return d.x; })
 			.attr('cy', function(d){return d.y;});
 		
