@@ -51,8 +51,8 @@
 		circles.enter().append('circle')
 			.attr('r', 10);
 		
-		circles.attr('cx', function(d){return d.x; })
-			.attr('cy', function(d){return d.y;});
+		circles.attr('cx', function(d){return d.x * 20; })
+			.attr('cy', function(d){return d.y * 20;});
 		
 		circles.exit().remove();
 		
