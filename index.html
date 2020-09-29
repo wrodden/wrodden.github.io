@@ -50,12 +50,12 @@
 		
 		circles.attr('cx',function(d) 
 			{
-				return d.x*50;
+				return d.x * 50;
 			});
 		
 		circles.attr('cy',function(d) 
 			{
-				return d.y*50;
+				return d.y * 50;
 			});
 		
 		circles.attr('r', function()
@@ -70,7 +70,7 @@
 			data.forEach(function(circle_data)
 			{
 				draw_circles(circle_data);
-				console.log(circle_data)
+				console.log(circle_data);
 			});
 			//draw_circles();
 		});
