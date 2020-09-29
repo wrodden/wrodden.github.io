@@ -40,13 +40,12 @@
 
 	
 	<script>
-		
-		function draw_circles(circle_data)
-		{
-		
 		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
 		
 		var circles = selection.enter().append('circle');
+		
+		function draw_circles(circle_data)
+		{
 		
 		circles.attr('cx',function(d) 
 			{
@@ -71,8 +70,9 @@
 		{
 			data.forEach(function(circle_data)
 			{
-				draw_circles(circle_data);
-				console.log(circle_data);
+				circles.attr('cx', circle_data.x);
+				circles.attr('cy', 500 - circle_data.y);
+				circles.attr('r', 10)
 			});
 			//draw_circles();
 		});
