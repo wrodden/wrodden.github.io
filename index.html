@@ -32,7 +32,28 @@
 
 	
 	<script>
-
+		function death_rectangles(data)
+		{
+		
+		var svg = d3.select('svg').select('g')
+		
+		var rectangles = svg.selectAll('rect').data(data);
+		
+		rectangles.enter().append('rect')
+			.attr('height', 2)
+			.attr('width', 10);
+		
+		rectangles.attr('x', function(d){return d.x * 20; })
+			.attr('y', function(d){return 500 - (d.y * 20);});
+		
+		rectangles.exit().remove();
+		
+		};
+		
+		d3.csv('deaths_age_sex.csv', function(myArrayOfObjects){
+			death_rectangles(myArrayOfObjects);
+		});
+		
 		function draw_circles(data)
 		{
 		
@@ -51,7 +72,7 @@
 		};
 		
 		d3.csv('pumps.csv', function(myArrayOfObjects){
-		draw_circles(myArrayOfObjects);
+			draw_circles(myArrayOfObjects);
 		});
 	</script>
 </body>
