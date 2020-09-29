@@ -40,6 +40,10 @@
 
 	
 	<script>
+		var selection = d3.select('svg').select('g').selectAll('rect').data(dataset);
+			
+		var rectangles = selection.enter().append('rect');
+		var dataset = [ 5, 10, 15, 20, 25 ];
 		var svg = d3.select("body").append("svg");
 		var circles = svg.selectAll("circle")
                  .data(dataset)
@@ -53,6 +57,29 @@
 			.attr("r", function(d) {
 				return d;
 			});
+		function draw_circles()
+		{
+		
+		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
+		
+		var circles = selection.enter().append('circle');
+		
+		circles.attr('x',function(d, i) 
+			{
+				return d;
+			});
+		
+		circles.attr('y',function(d, i) 
+			{
+				return i;
+			});
+		
+		circles.attr('r', function()
+			{
+				return 10;
+			}
+		
+		}
 	</script>
 </body>
 
