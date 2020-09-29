@@ -65,13 +65,15 @@
 		
 		}
 		
-		d3.csv('pumps.csv', function(circle_data) 
+		d3.csv('pumps.csv', function(data) 
 		{
-
-			console.log(circle_data)
-
+			data.forEach(function(d)
+			{
+				circle_data.push(+d);
+			//console.log(circle_data)
+			});
 			draw_circles();
-
+			
 		});
 	</script>
 </body>
