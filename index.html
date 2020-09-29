@@ -34,7 +34,8 @@
 	<script>
 		function draw_circles(data)
 		{
-		
+		var x_coord = function(d){d * 50 - 300};
+		var y_coord = function(d){1000- (d*50)};
 		var svg = d3.select('svg').select('g')
 		
 		var circles = svg.selectAll('circle').data(data);
@@ -56,8 +57,8 @@
 		
 		text.attr("x", function(d) { return d.x* 50 - 303; })
 			.attr("y", function(d) { return 1000 + 3 - (d.y * 50);})
-			.text( function () { return 'P'; })
-			.attr("font-size", "3px")
+			.text( function () { return 'p'; })
+			.attr("font-size", "2px")
 			.attr("fill", "white");
 		};
 		
