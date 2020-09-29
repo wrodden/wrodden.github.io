@@ -40,16 +40,31 @@
 
 	
 	<script>
-		d3.csv('pumps.csv', d3.autoType).then(function (data) {
-			d3.select("svg")
-				.select('g')
-				.selectAll("circle")
-				.data(data)
-				.enter()
-				.append("circle")
-				.attr("cx", function(d) { return d.x * 40; })
-				.attr("cy", function(d) { return 500 - d.y * 40; })
-				.attr("r", 10);
+		var circle_data_x = [];
+		
+		var circle_data_y = [];
+		
+		var selection = d3.select('svg').select('g').selectAll('circle').data(circle_data);
+		
+		var circles = selection.enter().append('circle');
+		
+		function draw_circles(data)
+		{
+		
+		var circles = svg.selectAll('circle').data(data)
+		
+		circles.enter().append('circle)
+			.attr('r', 10);
+			
+		circles.attr('cx', function(d){return d.x; })
+			.attr('cy', function(d){return d.y;});
+		
+		circles.exit().remove();
+		
+		}
+		
+		d3.csv('pumps.csv', function(myArrayOfObjects){
+		render(myArrayOfObjects);
 		});
 	</script>
 </body>
