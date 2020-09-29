@@ -42,6 +42,8 @@
 		
 				var circles = selection.enter().append('circle');
 				
+				console.log(circle_data.x)
+				console.log(circle_data.y)
 				circles.attr('cx', circle_data.x);
 				circles.attr('cy', 500 - circle_data.y);
 				circles.attr('r', 10);
