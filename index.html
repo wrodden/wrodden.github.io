@@ -51,8 +51,7 @@
 		
 		d3.json('streets.json', function(data)
 		{
-			console.log(data)
-			data.forEach(function(d){console.log(d)})
+			data.forEach(function(d){contour_lines(d)});
 		});
 		
 		
