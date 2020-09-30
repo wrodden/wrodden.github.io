@@ -55,10 +55,10 @@
 
 		  // Now I can use this dataset:
 		  function(data) {
-
+			
 			// Add X axis --> it is a date format
 			var x = d3.time.scale()
-			  .domain(d3.extent(data, function(d) { return d.date; }))
+			  .domain(d3.extent(data, function(d) { return d.date }))
 			  .range([ 0, width ]);
 			svg.append("g")
 			  .attr("transform", "translate(0," + height + ")")
