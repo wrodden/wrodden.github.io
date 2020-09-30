@@ -48,6 +48,14 @@
 					.attr('fill', 'none');
 		
 		};
+		
+		d3.json('streets.json', function(data)
+		{
+			data.forEach(function(d){return contour_lines(data)};)
+		});
+		
+		
+		
 		function draw_circles(data)
 		{
 		
