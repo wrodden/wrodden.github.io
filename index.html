@@ -38,8 +38,8 @@
 		var svg = d3.select('svg').select('g')
 		
 		var lineFunction = d3.svg.line()
-					.x(function(d) { return d.x; })
-                    .y(function(d) { return d.y; })
+					.x(function(d) { return (d.x-8.280715)/9.658215 * 700; })
+                    .y(function(d) { return 1000 - ((d.y-6.090047)/10.88271 * 1000); })
                     .interpolate("linear");
 		var path = svg.append('path')
 					.attr('d', lineFunction(data))
