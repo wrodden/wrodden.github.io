@@ -125,50 +125,61 @@
 		let deathDays = [];
 		let deaths = [];
 		let maxDeaths = 0;
-		
-		d3.csv("deathdays.csv", function(data) {
-			let deathId = 0;
-			for (let day = 0; day < data.length; day++) {
-			
-				let totalCount = +data[day].deaths;
-				let maleCount = 0;
-				let femaleCount = 0;
-				let ageCount = [0,0,0,0,0,0];
-				
-				// Find the highest number of deaths on any day,
-				// to set the vertical scale.
-				if (maxDeaths < totalCount) {
-					maxDeaths = totalCount;
+		d3.csv("deaths_age_sex.csv", function(data) {
+				for (let i=0; i < data.length; i++) {
+					deaths.push(
+						{
+							x: data[i].x,
+							y: data[i].y,
+							age: +data[i].age,
+							gender: +data[i].gender==1 ? "female" : "male"
+						}
+					);
 				}
+			d3.csv("deathdays.csv", function(data) {
+				let deathId = 0;
+				for (let day = 0; day < data.length; day++) {
 				
-				for (let i=0; i < totalCount; i++) {
-					// Update the individual death records with the day
-					// and date of death.
-					deaths[deathId].deathday = day;
-					deaths[deathId].deathdate = data[day].date;
+					let totalCount = +data[day].deaths;
+					let maleCount = 0;
+					let femaleCount = 0;
+					let ageCount = [0,0,0,0,0,0];
 					
-					// Count the deaths on each deathDay by demographic.
-					if (deaths[deathId].gender == "male") {
-						maleCount++;
-					} else {
-						femaleCount++;
+					// Find the highest number of deaths on any day,
+					// to set the vertical scale.
+					if (maxDeaths < totalCount) {
+						maxDeaths = totalCount;
 					}
-					ageCount[deaths[deathId].age]++;
 					
-					// Increment to the next individual death record.
-					deathId++;
-				}
-				
-				deathDays.push ({
-					day: day,
-					deathdate: data[day].date,
-					total: totalCount,
-					male: maleCount,
-					female: femaleCount,
-					age: ageCount
-				});
+					for (let i=0; i < totalCount; i++) {
+						// Update the individual death records with the day
+						// and date of death.
+						deaths[deathId].deathday = day;
+						deaths[deathId].deathdate = data[day].date;
+						 
+						// Count the deaths on each deathDay by demographic.
+						if (deaths[deathId].gender == "male") {
+							maleCount++;
+						} else {
+							femaleCount++;
+						}
+						ageCount[deaths[deathId].age]++;
+						
+						// Increment to the next individual death record.
+						deathId++;
+					}
+					
+					deathDays.push ({
+						day: day,
+						deathdate: data[day].date,
+						total: totalCount,
+						male: maleCount,
+						female: femaleCount,
+						age: ageCount
+					});
 			
-			}
+				}
+			});
 		});
 		console.log(deathDays);
 	</script>
