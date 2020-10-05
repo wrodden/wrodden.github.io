@@ -45,8 +45,8 @@
 		var svg = d3.select('svg').select('g')
 		
 		var lineFunction = d3.svg.line()
-					.x(function(d) { return (d.x-8.280715)/9.658215 * 500; })
-                    .y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500); })
+					.x(function(d) { return (d.x-8.280715)/9.658215 * 500 +50; })
+                    .y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500) +50; })
                     .interpolate("linear");
 		var path = svg.append('path')
 					.attr('d', lineFunction(data))
@@ -73,8 +73,8 @@
 		circles.enter().append('circle')
 			.attr('r', 7);
 		
-		circles.attr('cx', function(d){return (d.x-8.280715)/9.658215 * 500; })
-			.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500);});
+		circles.attr('cx', function(d){return (d.x-8.280715)/9.658215 * 500 +50; })
+			.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)+50;});
 		
 		circles.exit().remove();
 		
@@ -85,8 +85,8 @@
                       .enter()
                       .append("text");
 		
-		text.attr("x", function(d) { return (d.x-8.280715)/9.658215 * 500 - 4; })
-			.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500) + 5;})
+		text.attr("x", function(d) { return (d.x-8.280715)/9.658215 * 500 + 46; })
+			.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500) + 55;})
 			.text( function () { return 'P'; })
 			.style("font-size", "12px")
 			.attr("fill", "white");
@@ -107,8 +107,8 @@
 			.attr('height', 3)
 			.attr('width', 3);
 		
-		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 500; })
-			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500);});
+		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 500 +50; })
+			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)+50;});
 		
 		rectangles.exit().remove();
 		
@@ -120,7 +120,7 @@
 		
 		const timeConv = d3.time.format("%m-%d-%Y");
 		const dataset = d3.csv("deathdays.csv");
-		dataset.forEach(function(data) {
+		dataset.then(function(data) {
 			const slices = data.columns.slice(1).map(function(id) {
 				return {
 					id: id,
