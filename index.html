@@ -4,23 +4,27 @@
 	<title>Project 1 - sample code</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 	<style>
-    	text { 
-			font-family: Arial; 
-			font-size: 15px;
-		}
-		.axis path, .axis line {
-			fill: none;
-			stroke: black;
-			shape-rendering: crispEdges;
-		}
-		.tick text {
-			fill: black;
-			font-size: 11px;
-		}
+		<div id="area1">
+			text { 
+				font-family: Arial; 
+				font-size: 15px;
+			}
+			.axis path, .axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			.tick text {
+				fill: black;
+				font-size: 11px;
+			}
 
-		rect {
-			stroke: white;
-		}
+			rect {
+				stroke: white;
+			}
+		</div>
+		<div id="area2">
+		</div>
 	</style>
 </head>
 <body>
@@ -42,7 +46,7 @@
 		//Old code is here: Delete above in script if failure
 		function contour_lines(data)
 		{
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('#area1').select('g')
 		
 		var lineFunction = d3.svg.line()
 					.x(function(d) { return (d.x-8.280715)/9.658215 * 400 +200; })
@@ -66,7 +70,7 @@
 		function draw_circles(data)
 		{
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('#area1').select('g')
 		
 		var circles = svg.selectAll('circle').data(data);
 		
@@ -78,7 +82,7 @@
 		
 		circles.exit().remove();
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('#area1').select('g')
 
 		var text = svg.selectAll("text")
                       .data(data)
@@ -99,7 +103,7 @@
 		function death_rectangles(data)
 		{
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('#area1').select('g')
 		
 		var rectangles = svg.selectAll('rect').data(data);
 		
@@ -183,6 +187,8 @@
 			});
 		});
 		console.log(death_days);
+		
+		var chart2 = d3.select('body').append('svg')
 	</script>
 </body>
 
