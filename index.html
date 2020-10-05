@@ -189,14 +189,14 @@
 		//console.log(death_days);
 		function death_line_graph()
 		{
-			var svg = d3.select('svg#graph').select('g')
-			let graphTotalPathGenerator = d3.svg.line()
+			var graph = d3.select('svg#graph').select('g')
+			let pathfinder = d3.svg.line()
 				.x(function(d) { return d.day; })
 				.y(function(d) { return d.total; });
 
-			svg.append('path')
+			graph.append('path')
 				//.attr('class', 'graphline')
-				.attr('d', graphTotalPathGenerator(death_days))
+				.attr('d', pathfinder(death_days))
 				.attr('stroke','red')
 				.attr('stroke-width', 3)
 				.attr('fill', 'none');
