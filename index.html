@@ -118,43 +118,58 @@
 			death_rectangles(myArrayOfObjects);
 		});
 		
-		const timeConv = d3.time.format("%m-%d-%Y");
-		//const dataset = d3.csv("deathdays.csv", function(data)
-		//{
-		//	data.forEach(function(row)
-		//	{
-		//		return {
-		//			day : row.date,
-		//			deaths : row.deaths
-		//		}
-		//	});
-		//});
+		let streets = [];
+		let mapLabels = [];
+		let pumps = [];
 		
-		d3.csv("deathdays.csv", function(d) {
-		  return {
-			day : timeConv.parse(d.date),
-			deaths : d.deaths
-		  };
-		}).then(function(data) {
-		  console.log(data[0]);
-		});
+		let deathDays = [];
+		let deaths = [];
+		let maxDeaths = 0;
 		
-		//dataset.then(function(data) {
-		//	const slices = data.columns.slice(1).map(function(id) {
-		//		return {
-		//			id: id,
-		//			values: data.map(function(d){
-		//				return {
-		//					date: timeConv.parse(d.date),
-		//					dead: +d[id]
-		//				};
-		//			})
-		//		};
-		//	});
-		//});
-
-		//console.log("Column headers", data.columns);
-		
+		d3.csv("deathdays.csv", function(data) {
+			let deathId = 0;
+			for (let day = 0; day < data.length; day++) {
+			
+				let totalCount = +data[day].deaths;
+				let maleCount = 0;
+				let femaleCount = 0;
+				let ageCount = [0,0,0,0,0,0];
+				
+				// Find the highest number of deaths on any day,
+				// to set the vertical scale.
+				if (maxDeaths < totalCount) {
+					maxDeaths = totalCount;
+				}
+				
+				for (let i=0; i < totalCount; i++) {
+					// Update the individual death records with the day
+					// and date of death.
+					deaths[deathId].deathday = day;
+					deaths[deathId].deathdate = data[day].date;
+					
+					// Count the deaths on each deathDay by demographic.
+					if (deaths[deathId].gender == "male") {
+						maleCount++;
+					} else {
+						femaleCount++;
+					}
+					ageCount[deaths[deathId].age]++;
+					
+					// Increment to the next individual death record.
+					deathId++;
+				}
+				
+				deathDays.push ({
+					day: day,
+					deathdate: data[day].date,
+					total: totalCount,
+					male: maleCount,
+					female: femaleCount,
+					age: ageCount
+				});
+			
+		}
+		console.log(deathDays);
 	</script>
 </body>
 
