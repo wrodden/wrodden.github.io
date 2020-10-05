@@ -141,7 +141,7 @@
 			const xScale = d3.scale.linear().range([50,550]);
 			const yScale = d3.scale.linear().range([550, 50]);
 			
-			let yaxis = d3.svg.axis().scale(yScale).orient('left').ticks(15).tickFormat(d3.format('  0')).tickValues([10,20,30,40,50,60,70,80,90,100,110,120,130,140,150]); 
+			let yaxis = d3.svg.axis().scale(yScale).orient('left').tickFormat(function(d){return d*143;}); 
 			let xaxis = d3.svg.axis().scale(xScale).orient('bottom');//.tickFormat(function(d){return death_days[d].deathdate;});
 			
 			graph.append("g")
