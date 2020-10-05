@@ -128,7 +128,7 @@
 			var graph = d3.select('svg#graph').select('g')
 			
 			let pathfinder = d3.svg.line()
-				.x(function(d) { return (d.day / 42)* 500; })
+				.x(function(d) { return 50+(d.day / 42)* 500; })
 				.y(function(d) { return 550 - ((d.total/ 143)*500); });
 
 			graph.append('path')
