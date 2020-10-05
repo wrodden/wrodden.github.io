@@ -135,7 +135,7 @@
 				//.attr('class', 'graphline')
 				.attr('d', pathfinder(death_days))
 				.attr('stroke','red')
-				.attr('stroke-width', 1)
+				.attr('stroke-width', 2)
 				.attr('fill', 'none');
 			
 			const xScale = d3.scale.linear().range([50,550]);
@@ -147,11 +147,13 @@
 			graph.append("g")
 				.attr("class", "axis")
 				.attr("transform", "translate(0," + 550 + ")")
+				.attr('stroke-width', 3)
 				.call(xaxis);
 
 			graph.append("g")
 				.attr("class", "axis")
 				.attr("transform", "translate(50, 0)")
+				.attr('stroke-width', 3)
 				.call(yaxis);
 		};
 		
