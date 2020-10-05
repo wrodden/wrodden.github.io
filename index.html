@@ -188,21 +188,21 @@
 		});
 		console.log(death_days);
 		
-		function death_line_graph()
+		function death_line_graph(death_data)
 		{
 			var svg = d3.select('svg#graph').select('g')
 		
 			var lineFunction = d3.svg.line()
-						.x(function(d) { return death_days.day; })
-						.y(function(d) { return death_days.total; })
+						.x(function(d) { return death_data.day; })
+						.y(function(d) { return death_data.total; })
 						.interpolate("linear");
 			var path = svg.append('path')
-						.attr('d', lineFunction(death_days))
+						.attr('d', lineFunction(death_data))
 						.attr('stroke','blue')
 						.attr('stroke-width', 3)
 						.attr('fill', 'none');
 		};
-		death_line_graph();
+		death_days.forEach(function(myArray){death_line_graph(myArray)};
 	</script>
 </body>
 
