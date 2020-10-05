@@ -25,7 +25,7 @@
 </head>
 <body>
 
-	<svg id="main" width="1200" height="700">
+	<svg id="map" width="1200" height="700">
 		<text id='label' x='20' y='20'>SVG Tester</text>
 		<g transform="translate(20,40)"></g>
 	</svg>
@@ -42,7 +42,7 @@
 		//Old code is here: Delete above in script if failure
 		function contour_lines(data)
 		{
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('svg#map').select('g')
 		
 		var lineFunction = d3.svg.line()
 					.x(function(d) { return (d.x-8.280715)/9.658215 * 400 +200; })
@@ -66,7 +66,7 @@
 		function draw_circles(data)
 		{
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('svg#map').select('g')
 		
 		var circles = svg.selectAll('circle').data(data);
 		
@@ -78,7 +78,7 @@
 		
 		circles.exit().remove();
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('svg#map').select('g')
 
 		var text = svg.selectAll("text")
                       .data(data)
@@ -99,7 +99,7 @@
 		function death_rectangles(data)
 		{
 		
-		var svg = d3.select('svg').select('g')
+		var svg = d3.select('svg#map').select('g')
 		
 		var rectangles = svg.selectAll('rect').data(data);
 		
@@ -184,6 +184,7 @@
 		});
 		console.log(death_days);
 		
+		//var chart2 = d3.select('body').append('svg')
 	</script>
 </body>
 
