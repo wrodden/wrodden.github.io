@@ -197,7 +197,7 @@
 						.y(function(d) { return death_days.total; })
 						.interpolate("linear");
 			var path = svg.append('path')
-						.attr('d', lineFunction(data))
+						.attr('d', lineFunction(death_days))
 						.attr('stroke','blue')
 						.attr('stroke-width', 3)
 						.attr('fill', 'none');
