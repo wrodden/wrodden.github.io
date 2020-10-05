@@ -137,6 +137,21 @@
 				.attr('stroke','red')
 				.attr('stroke-width', 3)
 				.attr('fill', 'none');
+			
+			const xScale = d3.scaleLinear().range([50,550]);
+			const yScale = d3.scaleLinear().rangeRound([550, 50]);
+			
+			const yaxis = d3.axisLeft().scale(yScale); 
+			const xaxis = d3.axisBottom().scale(xScale);
+			
+			graph.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xaxis);
+
+			graph.append("g")
+				.attr("class", "axis")
+				.call(yaxis);
 		};
 		
 		let streets = [];
