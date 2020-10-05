@@ -193,8 +193,8 @@
 			var svg = d3.select('svg#graph').select('g')
 			
 			let lineFunction = d3.svg.line()
-						.x(function(d) { return (death_days.day / 42) * 600; })
-						.y(function(d) { return 700-((death_days.total / 143 ) * 600); });
+						.x(function(d) { return (d.day / 42) * 600; })
+						.y(function(d) { return 700-((d.total / 143 ) * 600); });
 						//.interpolate("linear");
 			var path = svg.append('path')
 						.attr('d', lineFunction(death_days))
@@ -202,7 +202,7 @@
 						.attr('stroke-width', 3)
 						.attr('fill', 'none');
 		};
-		death_line_graph();
+		death_line_graph(death_days);
 		//console.log(death_days)
 		
 	</script>
