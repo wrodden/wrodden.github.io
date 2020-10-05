@@ -202,7 +202,9 @@
 						.attr('stroke-width', 3)
 						.attr('fill', 'none');
 		};
-		death_days.forEach(function(myArray){death_line_graph(myArray)});
+		for (var i = 0, l = death_days.length; i < l; i++){
+			death_line_graph(death_days[i])
+		};
 	</script>
 </body>
 
