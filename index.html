@@ -188,7 +188,21 @@
 		});
 		console.log(death_days);
 		
-		//var chart2 = d3.select('body').append('svg')
+		function death_line_graph(data)
+		{
+			var svg = d3.select('svg#graph').select('g')
+		
+			var lineFunction = d3.svg.line()
+						.x(function(d) { return d.day; })
+						.y(function(d) { return data.total; })
+						.interpolate("linear");
+			var path = svg.append('path')
+						.attr('d', lineFunction(data))
+						.attr('stroke','blue')
+						.attr('stroke-width', 3)
+						.attr('fill', 'none');
+		};
+		var chart2 = d3.select('body').append('svg')
 	</script>
 </body>
 
