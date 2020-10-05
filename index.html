@@ -194,7 +194,7 @@
 		
 			var lineFunction = svg.line()
 						.x(function(d) { return death_days.day; })
-						.y(function(d) { return death_days.total; })
+						.y(function(d) { return 700-death_days.total; })
 						.interpolate("linear");
 			var path = svg.append('path')
 						.attr('d', lineFunction())
@@ -202,7 +202,7 @@
 						.attr('stroke-width', 3)
 						.attr('fill', 'none');
 		};
-		death_days.forEach(function(d){console.log(d)});
+		death_line_graph();
 		//console.log(death_days)
 		for (var i = 0, l = death_days.length; i < l; i++){
 			console.log(i);
