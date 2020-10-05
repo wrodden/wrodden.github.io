@@ -105,7 +105,8 @@
 		
 		rectangles.enter().append('rect')
 			.attr('height', 3)
-			.attr('width', 3);
+			.attr('width', 3)
+			.attr('fill','orange');
 		
 		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
 			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
