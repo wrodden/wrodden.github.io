@@ -189,6 +189,7 @@
 		//console.log(death_days);
 		function death_line_graph()
 		{
+			var svg = d3.select('svg#graph').select('g')
 			let graphTotalPathGenerator = d3.svg.line()
 				.x(function(d) { return d.day; })
 				.y(function(d) { return d.total; });
