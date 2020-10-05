@@ -118,7 +118,7 @@
 			death_rectangles(myArrayOfObjects);
 		});
 		
-		const timeConv = d3.time.parse("%b-%d-%Y");
+		const timeConv = d3.time.format("%m-%d-%Y");
 		const dataset = d3.csv("deathdays.csv");
 		dataset.then(function(data) {
 			const slices = data.columns.slice(1).map(function(id) {
