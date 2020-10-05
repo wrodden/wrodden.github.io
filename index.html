@@ -123,6 +123,22 @@
 			death_rectangles(myArrayOfObjects);
 		});
 		
+		function death_line_graph()
+		{
+			var graph = d3.select('svg#graph').select('g')
+			
+			let pathfinder = d3.svg.line()
+				.x(function(d) { return d.day; })
+				.y(function(d) { return d.total; });
+
+			graph.append('path')
+				//.attr('class', 'graphline')
+				.attr('d', pathfinder(death_days))
+				.attr('stroke','red')
+				.attr('stroke-width', 3)
+				.attr('fill', 'none');
+		};
+		
 		let streets = [];
 		let mapLabels = [];
 		let pumps = [];
@@ -184,23 +200,25 @@
 					});
 			
 				}
+				death_line_graph();
 			});
 		});
 		//console.log(death_days);
-		function death_line_graph()
-		{
-			var graph = d3.select('svg#graph').select('g')
-			let pathfinder = d3.svg.line()
-				.x(function(d) { return d.day; })
-				.y(function(d) { return d.total; });
+		//function death_line_graph()
+		//{
+		//	var graph = d3.select('svg#graph').select('g')
+			
+		//	let pathfinder = d3.svg.line()
+		//		.x(function(d) { return d.day; })
+		//		.y(function(d) { return d.total; });
 
-			graph.append('path')
-				//.attr('class', 'graphline')
-				.attr('d', pathfinder(death_days))
-				.attr('stroke','red')
-				.attr('stroke-width', 3)
-				.attr('fill', 'none');
-		};
+		//	graph.append('path')
+		//		//.attr('class', 'graphline')
+		//		.attr('d', pathfinder(death_days))
+		//		.attr('stroke','red')
+		//		.attr('stroke-width', 3)
+		//		.attr('fill', 'none');
+		//};
 		
 	//	function death_line_graph()
 	//	{
@@ -216,7 +234,7 @@
 	//					.attr('stroke-width', 3)
 	//					.attr('fill', 'none');
 	//	};
-		death_line_graph();
+		//death_line_graph();
 		//console.log(death_days)
 		
 	</script>
