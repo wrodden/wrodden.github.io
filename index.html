@@ -192,7 +192,7 @@
 		{
 			var svg = d3.select('svg#graph').select('g')
 		
-			var lineFunction = d3.svg.line()
+			var lineFunction = svg.line()
 						.x(function(d) { return death_data.day; })
 						.y(function(d) { return death_data.total; })
 						.interpolate("linear");
