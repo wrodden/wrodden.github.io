@@ -194,8 +194,8 @@
 			
 			let lineFunction = d3.svg.line()
 						.x(function(d) { return (death_days.day / 42) * 600; })
-						.y(function(d) { return 700-((death_days.total / 143 ) * 600); })
-						.interpolate("linear");
+						.y(function(d) { return 700-((death_days.total / 143 ) * 600); });
+						//.interpolate("linear");
 			var path = svg.append('path')
 						.attr('d', lineFunction(death_days))
 						.attr('stroke','blue')
