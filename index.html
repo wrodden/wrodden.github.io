@@ -122,7 +122,7 @@
 		let mapLabels = [];
 		let pumps = [];
 		
-		let deathDays = [];
+		let death_days = [];
 		let deaths = [];
 		let maxDeaths = 0;
 		d3.csv("deaths_age_sex.csv", function(data) {
@@ -169,7 +169,7 @@
 						deathId++;
 					}
 					
-					deathDays.push ({
+					death_days.push ({
 						day: day,
 						deathdate: data[day].date,
 						total: totalCount,
@@ -181,7 +181,7 @@
 				}
 			});
 		});
-		console.log(deathDays);
+		console.log(death_days);
 	</script>
 </body>
 
