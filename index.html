@@ -186,15 +186,15 @@
 				}
 			});
 		});
-		console.log(death_days);
+		//console.log(death_days);
 		
 		function death_line_graph(death_data)
 		{
 			var svg = d3.select('svg#graph').select('g')
 		
 			var lineFunction = svg.line()
-						.x(function(d) { console.log(death_data.day); return death_data.day; })
-						.y(function(d) { console.log(death_data.total); return death_data.total; })
+						.x(function(d) { return death_data.day; })
+						.y(function(d) { return death_data.total; })
 						.interpolate("linear");
 			var path = svg.append('path')
 						.attr('d', lineFunction(death_data))
@@ -203,6 +203,7 @@
 						.attr('fill', 'none');
 		};
 		for (var i = 0, l = death_days.length; i < l; i++){
+			console.log(death_days[i];
 			death_line_graph(death_days[i]);
 		};
 	</script>
