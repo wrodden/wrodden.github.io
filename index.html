@@ -190,13 +190,15 @@
 		function death_line_graph()
 		{
 			let graphTotalPathGenerator = d3.svg.line()
-				.x(function(d) { return graphXScale(d.day); })
-				.y(function(d) { return graphYScale(d.total); });
+				.x(function(d) { return d.day; })
+				.y(function(d) { return d.total; });
 
-			graph.append('path')
-				.attr('id', 'graph')
+			svg.append('path')
 				//.attr('class', 'graphline')
-				.attr('d', graphTotalPathGenerator(deathDays));
+				.attr('d', graphTotalPathGenerator(deathDays))
+				.attr('stroke','red')
+				.attr('stroke-width', 3)
+				.attr('fill', 'none');
 		};
 		
 	//	function death_line_graph()
