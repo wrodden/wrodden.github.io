@@ -46,7 +46,7 @@
 		
 		var lineFunction = d3.svg.line()
 					.x(function(d) { return (d.x-8.280715)/9.658215 * 500 +150; })
-                    .y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500) -55; })
+                    .y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500) -65; })
                     .interpolate("linear");
 		var path = svg.append('path')
 					.attr('d', lineFunction(data))
@@ -74,7 +74,7 @@
 			.attr('r', 7);
 		
 		circles.attr('cx', function(d){return (d.x-8.280715)/9.658215 * 500 +150; })
-			.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)-55;});
+			.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)-65;});
 		
 		circles.exit().remove();
 		
@@ -86,7 +86,7 @@
                       .append("text");
 		
 		text.attr("x", function(d) { return (d.x-8.280715)/9.658215 * 500 +150 - 4; })
-			.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500 - 55) +5;})
+			.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 500 - 65) +5;})
 			.text( function () { return 'P'; })
 			.style("font-size", "12px")
 			.attr("fill", "white");
@@ -108,7 +108,7 @@
 			.attr('width', 3);
 		
 		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 500 +150; })
-			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)-55;});
+			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 500)-65;});
 		
 		rectangles.exit().remove();
 		
