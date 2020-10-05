@@ -118,6 +118,22 @@
 			death_rectangles(myArrayOfObjects);
 		});
 		
+		const timeConv = d3.timeParse("%d-%b-%Y");
+		const dataset = d3.csv("deathdays.csv");
+		dataset.then(function(data) {
+			const slices = data.columns.slice(1).map(function(id) {
+				return {
+					id: id,
+					values: data.map(function(d){
+						return {
+							date: timeConv(d.date),
+							dead: +d[id]
+						};
+					})
+				};
+			});
+
+		console.log("Column headers", data.columns);
 		
 	</script>
 </body>
