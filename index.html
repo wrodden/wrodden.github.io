@@ -120,7 +120,7 @@
 		
 		const timeConv = d3.time.format("%m-%d-%Y");
 		const dataset = d3.csv("deathdays.csv");
-		dataset.then(function(data) {
+		dataset.forEach(function(data) {
 			const slices = data.columns.slice(1).map(function(id) {
 				return {
 					id: id,
