@@ -119,20 +119,30 @@
 		});
 		
 		const timeConv = d3.time.format("%m-%d-%Y");
-		const dataset = d3.csv("deathdays.csv");
-		dataset.then(function(data) {
-			const slices = data.columns.slice(1).map(function(id) {
+		const dataset = d3.csv("deathdays.csv", function(data)
+		{
+			console.log("Column headers", data.columns);
+			data.forEach(function(row)
+			{
 				return {
-					id: id,
-					values: data.map(function(d){
-						return {
-							date: timeConv(d.date),
-							dead: +d[id]
-						};
-					})
-				};
+					day : row.date,
+					deaths : row.deaths
+				}
 			});
 		});
+		//dataset.then(function(data) {
+		//	const slices = data.columns.slice(1).map(function(id) {
+		//		return {
+		//			id: id,
+		//			values: data.map(function(d){
+		//				return {
+		//					date: timeConv.parse(d.date),
+		//					dead: +d[id]
+		//				};
+		//			})
+		//		};
+		//	});
+		//});
 
 		console.log("Column headers", data.columns);
 		
