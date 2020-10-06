@@ -240,8 +240,8 @@
 		var rectangles = svg.selectAll('rect').data(data);
 		
 		rectangles.enter().append('rect')
-			.attr('height', 3)
-			.attr('width', 3)
+			.attr('height', 4)
+			.attr('width', 4)
 			.attr('fill','orange');
 		
 		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
