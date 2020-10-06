@@ -119,9 +119,9 @@
 		
 		};
 		
-		d3.csv('deaths_age_sex.csv', function(myArrayOfObjects){
-			death_rectangles(myArrayOfObjects);
-		});
+		//d3.csv('deaths_age_sex.csv', function(myArrayOfObjects){
+		//	death_rectangles(myArrayOfObjects);
+		//});
 		
 		function death_line_graph()
 		{
@@ -234,6 +234,7 @@
 			
 				}
 				death_line_graph();
+				death_rectangles();
 			});
 		});
 		//console.log(death_days);
