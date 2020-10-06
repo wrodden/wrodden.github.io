@@ -369,7 +369,7 @@
 				.attr("stroke-width", "0")
 				.attr("id", function(d) { return d.deathdate; })
 				.attr("class", "time_window")
-				.on("click", function(d) {
+				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
 							console.log(+data.date.substr(4))
@@ -413,6 +413,39 @@
 				.attr("transform", "translate(50, 0)")
 				.attr('stroke-width', 3)
 				.call(yaxis);
+				
+			graph.selectAll("rect.time_window")
+				.data(death_days)
+				.enter()
+				.append("rect")
+				.attr("x", function(d, i) {
+					 return 50+(d.day / 42)* 500; 
+				})
+				.attr("y", 50)
+				.attr('width', barWidth)
+				.attr("height", 200)
+				.attr("fill", "yellow")
+				.attr("fill-opacity", "1")
+				.attr("stroke", "none")
+				.attr("stroke-width", "0")
+				.attr("id", function(d) { return d.deathdate; })
+				.attr("class", "time_window")
+				.on("mouseover", function(d) {
+					d3.selectAll('rect.deaths')
+						.filter(function(data) {
+							console.log(+data.date.substr(4))
+							return +data.date.substr(4) > +d.day;
+						})
+						.attr('visibility','hidden');
+				})
+				.on("mouseout", function(d) {
+					d3.select('svg#map').selectAll("rect.deaths").attr("visibility","visible");
+				})
+				.append("title")
+				.text(function(d) {
+					return d.deathdate + ": " + d.total + 
+						(d.total==1 ? " death" : " deaths");
+				});
 		};
 		
 		let streets = [];
