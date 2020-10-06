@@ -37,34 +37,19 @@
 	
 	<script>
 		
-		
-		
-		
-		
-		
-		function filter_deaths(data_date)
-		{
-			d3.selectAll('rect').filter(function(d)
-					{
-						return data.day > d.day;
-					})
-					.attr('visibility','hidden');
-		};
-
-		//Old code is here: Delete above in script if failure
 		function contour_lines(data)
 		{
-			var svg = d3.select('svg#map').select('g')
-			
-			var lineFunction = d3.svg.line()
-						.x(function(d) { return (d.x-8.280715)/9.658215 * 400 +200; })
-						.y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 400) -65; })
-						.interpolate("linear");
-			var path = svg.append('path')
-						.attr('d', lineFunction(data))
-						.attr('stroke','blue')
-						.attr('stroke-width', 3)
-						.attr('fill', 'none');
+		var svg = d3.select('svg#map').select('g')
+		
+		var lineFunction = d3.svg.line()
+					.x(function(d) { return (d.x-8.280715)/9.658215 * 400 +200; })
+                    .y(function(d) { return 600 - ((d.y-6.090047)/10.88271 * 400) -65; })
+                    .interpolate("linear");
+		var path = svg.append('path')
+					.attr('d', lineFunction(data))
+					.attr('stroke','blue')
+					.attr('stroke-width', 3)
+					.attr('fill', 'none');
 		
 		};
 		
@@ -78,30 +63,30 @@
 		function draw_circles(data)
 		{
 		
-			var svg = d3.select('svg#map').select('g')
-			
-			var circles = svg.selectAll('circle').data(data);
-			
-			circles.enter().append('circle')
-				.attr('r', 7);
-			
-			circles.attr('cx', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
-				.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
-			
-			circles.exit().remove();
-			
-			var svg = d3.select('svg#map').select('g')
+		var svg = d3.select('svg#map').select('g')
+		
+		var circles = svg.selectAll('circle').data(data);
+		
+		circles.enter().append('circle')
+			.attr('r', 7);
+		
+		circles.attr('cx', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
+			.attr('cy', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
+		
+		circles.exit().remove();
+		
+		var svg = d3.select('svg#map').select('g')
 
-			var text = svg.selectAll("text")
-						  .data(data)
-						  .enter()
-						  .append("text");
-			
-			text.attr("x", function(d) { return (d.x-8.280715)/9.658215 * 400 +196; })
-				.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 400)- 60;})
-				.text( function () { return 'P'; })
-				.style("font-size", "12px")
-				.attr("fill", "white");
+		var text = svg.selectAll("text")
+                      .data(data)
+                      .enter()
+                      .append("text");
+		
+		text.attr("x", function(d) { return (d.x-8.280715)/9.658215 * 400 +196; })
+			.attr("y", function(d) { return 600 - ((d.y-6.090047)/10.88271 * 400)- 60;})
+			.text( function () { return 'P'; })
+			.style("font-size", "12px")
+			.attr("fill", "white");
 		};
 		
 		d3.csv('pumps.csv', function(myArrayOfObjects){
@@ -111,19 +96,19 @@
 		function death_rectangles(data)
 		{
 		
-			var svg = d3.select('svg#map').select('g')
-			
-			var rectangles = svg.selectAll('rect').data(data);
-			
-			rectangles.enter().append('rect')
-				.attr('height', 3)
-				.attr('width', 3)
-				.attr('fill','orange');
-			
-			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
-				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
-			
-			rectangles.exit().remove();
+		var svg = d3.select('svg#map').select('g')
+		
+		var rectangles = svg.selectAll('rect').data(data);
+		
+		rectangles.enter().append('rect')
+			.attr('height', 3)
+			.attr('width', 3)
+			.attr('fill','orange');
+		
+		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +200; })
+			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
+		
+		rectangles.exit().remove();
 		
 		};
 		
@@ -144,8 +129,7 @@
 				.attr('d', pathfinder(death_days))
 				.attr('stroke','red')
 				.attr('stroke-width', 3)
-				.attr('fill', 'none')
-				.on('mouseover', filter_deaths(death_days));
+				.attr('fill', 'none');
 			
 			const xScale = d3.scale.linear().range([50,550]);
 			const yScale = d3.scale.linear().range([550, 50]);
