@@ -327,7 +327,7 @@
 			rectangles.enter().append('rect')
 				.attr('id', function(d,i){return i;})
 				.attr('class', function(d){
-					return 'gender ' +d.gender + ' '  + 'age' + d.age + ' ' + 'date' + d.deathday;
+					return 'gender ' +d.gender + ' '  + 'age' + d.age + ' ' + 'date' + d.day;
 					})
 				//.attr('gender', function(d){return d.gender;})
 				//.attr('age', function(d){return d.age;})
@@ -396,7 +396,7 @@
 				.attr("fill-opacity", "1")
 				.attr("stroke", "none")
 				.attr("stroke-width", "0")
-				.attr("id", function(d) { return d.deathdate; })
+				.attr("id", function(d) { return d.day; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
