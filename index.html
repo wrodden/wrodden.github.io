@@ -136,7 +136,22 @@
 				.attr('d', pathfinder(death_days))
 				.attr('stroke','red')
 				.attr('stroke-width', 3)
-				.attr('fill', 'none');
+				.attr('fill', 'none')
+				.on("mouseover", function(d) {
+					d3.selectAll('.death')
+						.filter(function(d2) {
+							return d2.deathday > d.day;
+						})
+						.attr('visibility','hidden');
+				})
+				.on("mouseout", function(d) {
+					map.selectAll(".death").attr("visibility","visible");
+				})
+				.append("title")
+				.text(function(d) {
+					return d.deathdate + ": " + d.total + 
+						(d.total==1 ? " death" : " deaths");
+				});;
 			
 			const xScale = d3.scale.linear().range([50,550]);
 			const yScale = d3.scale.linear().range([550, 50]);
