@@ -235,19 +235,19 @@
 		function death_rectangles(data)
 		{
 		
-		var svg = d3.select('svg#map').select('g')
-		
-		var rectangles = svg.selectAll('rect').data(data);
-		
-		rectangles.enter().append('rect')
-			.attr('height', 4)
-			.attr('width', 4)
-			.attr('fill','orange');
-		
-		rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
-			.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
-		
-		rectangles.exit().remove();
+			var svg = d3.select('svg#map').select('g')
+			
+			var rectangles = svg.selectAll('rect.deaths').data(data);
+			
+			rectangles.enter().append('rect')
+				.attr('height', 4)
+				.attr('width', 4)
+				.attr('fill','orange');
+			
+			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
+				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
+			
+			rectangles.exit().remove();
 		
 		};
 		
@@ -258,6 +258,44 @@
 		function death_line_graph()
 		{
 			var graph = d3.select('svg#graph').select('g')
+			
+			let barWidth = 200 / (death_days.length - 1);
+			
+			const xScale = d3.scale.linear().range([50,550]);
+			
+			const yScale = d3.scale.linear().range([250, 50]);
+			
+			graph.selectAll("rect.time_window")
+				.data(death_days)
+				.enter()
+				.append("rect")
+				.attr("x", function(d, i) {
+					return xScale(i) - barWidth/2;
+				})
+				.attr("y", padding)
+				.attr('width', barWidth)
+				.attr("height", 200)
+				.attr("fill", "yellow")
+				.attr("fill-opacity", "0")
+				.attr("stroke", "none")
+				.attr("stroke-width", "0")
+				.attr("id", function(d) { return d.deathdate; })
+				.attr("class", "time_window")
+				.on("mouseover", function(d) {
+					d3.selectAll('rect.deaths')
+						.filter(function(d2) {
+							return d2.deathday > d.day;
+						})
+						.attr('visibility','hidden');
+				})
+				.on("mouseout", function(d) {
+					map.selectAll("rect.deaths").attr("visibility","visible");
+				})
+				.append("title")
+				.text(function(d) {
+					return d.deathdate + ": " + d.total + 
+						(d.total==1 ? " death" : " deaths");
+				});
 			
 			let pathfinder = d3.svg.line()
 				.x(function(d) { return 50+(d.day / 42)* 500; })
@@ -270,8 +308,7 @@
 				.attr('stroke-width', 3)
 				.attr('fill', 'none');
 			
-			const xScale = d3.scale.linear().range([50,550]);
-			const yScale = d3.scale.linear().range([250, 50]);
+			
 			
 			let yaxis = d3.svg.axis().scale(yScale).orient('left').tickFormat(function(d){return Math.round(d*143);}); 
 			let xaxis = d3.svg.axis().scale(xScale).orient('bottom').tickFormat(function(d){return death_days[d*40].deathdate;});
