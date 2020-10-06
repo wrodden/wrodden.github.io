@@ -232,12 +232,12 @@
 			draw_circles(myArrayOfObjects);
 		});
 	
-		function death_rectangles(data)
+		function death_rectangles()
 		{
 		
 			var svg = d3.select('svg#map').select('g')
 			
-			var rectangles = svg.selectAll('rect.deaths').data(data);
+			var rectangles = svg.selectAll('rect.deaths').data(deaths);
 			
 			rectangles.enter().append('rect')
 				.attr('id', function(d,i){return i;})
@@ -255,9 +255,6 @@
 		
 		};
 		
-		d3.csv('deaths_age_sex.csv', function(myArrayOfObjects){
-			death_rectangles(myArrayOfObjects);
-		});
 		
 		function death_line_graph()
 		{
@@ -394,6 +391,7 @@
 			
 				}
 				death_line_graph();
+				death_rectangles();
 				console.log(demographic_distribution);
 				drawMaleBars();//.then(drawFemaleBars);
 				drawFemaleBars();
