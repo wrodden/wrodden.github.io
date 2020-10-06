@@ -110,7 +110,7 @@
 			rectangles.attr('width', BAR_WIDTH)
 				.attr('x',function(d, i) 
 				{
-					return i * (BAR_WIDTH + 5);
+					return 5 + (i * (BAR_WIDTH + 5));
 				})
 				.attr('height', function(d)
 				{
@@ -141,7 +141,7 @@
 			
 			rectangles2.attr('x',function(d, i) 
 			{
-				return i * (BAR_WIDTH + 5);
+				return 5 + (i * (BAR_WIDTH + 5));
 			});
 			
 			rectangles2.attr('height', function(d)
