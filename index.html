@@ -155,7 +155,7 @@
 			});
 			rectangles2.attr('fill', 'orange');
 			const xScale = d3.scale.linear().range([0,300]);
-			const yScale = d3.scale.linear().range([250, 0]);
+			const yScale = d3.scale.linear().range([300, 0]);
 			
 			let yaxis = d3.svg.axis().scale(yScale).orient('left');//.tickFormat(function(d){return Math.round(d*143);}); 
 			let xaxis = d3.svg.axis().scale(xScale).orient('bottom');//.tickFormat(function(d){return death_days[d*40].deathdate;});
@@ -164,7 +164,7 @@
 			
 			demo_graph.append("g")
 				.attr("class", "axis")
-				.attr("transform", "translate(0," + 250 + ")")
+				.attr("transform", "translate(0," + 300 + ")")
 				.attr('stroke-width', 4)
 				.call(xaxis);
 
