@@ -233,9 +233,10 @@
 					});
 			
 				}
-				death_days.forEach(function(d){death_rectangles(d)});//.then(death_line_graph);
+				//death_days.forEach(function(d){death_rectangles(d)});//.then(death_line_graph);
 			});
-			death_line_graph();
+			death_days.forEach(function(d){death_rectangles(d)});//.then(death_line_graph);
+
 		});
 		//console.log(death_days);
 		//function death_line_graph()
