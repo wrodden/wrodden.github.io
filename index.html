@@ -401,7 +401,7 @@
 				.on("mouseover", function(d) {
 					d3.select('svg#map').selectAll('rect')//.attr('fill-opacity',0);
 						.filter(function(data) {
-							console.log(d)
+							//console.log(d)
 							return +data.deathday > +d.day;
 						})
 						.attr('fill-opacity',0);
