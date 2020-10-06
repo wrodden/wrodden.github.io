@@ -54,17 +54,6 @@
            type="button" 
            value="Reset map" 
            onclick="death_rectangles()" />
-		   
-	<input name="MaleButton" 
-           type="button" 
-           value="Male" 
-		   background-color = "blue"
-           opacity = 0 />
-	<input name="FemaleButton" 
-           type="button" 
-           value="Female" 
-		   background-color = "orange"
-           opacity = 0 />
 	</div>
 	
 	<svg id="graph" width="650" height="350">
@@ -76,7 +65,18 @@
 		<text id='label' x='20' y='20'>Demographic Graphic</text>
 		<g transform="translate(20,40)"></g>
 	</svg>
-	
+	<div id="option">
+	<input name="MaleButton" 
+           type="button" 
+           value="Male" 
+		   background-color = "blue"
+           opacity = 0 />
+	<input name="FemaleButton" 
+           type="button" 
+           value="Female" 
+		   background-color = "orange"
+           opacity = 0 />
+	</div>
 	
 	<script>
 		let demographic_distribution = [
