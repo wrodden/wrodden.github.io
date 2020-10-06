@@ -138,14 +138,14 @@
 				.attr('stroke-width', 3)
 				.attr('fill', 'none')
 				.on("mouseover", function(d) {
-					d3.selectAll('.death')
+					d3.selectAll('rect')
 						.filter(function(d2) {
 							return d2.deathday > d.day;
 						})
 						.attr('visibility','hidden');
 				})
 				.on("mouseout", function(d) {
-					map.selectAll(".death").attr("visibility","visible");
+					map.selectAll("rect").attr("visibility","visible");
 				})
 				.append("title")
 				.text(function(d) {
