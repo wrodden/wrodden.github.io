@@ -129,25 +129,25 @@
 			
 			var selection = d3.select('svg#demographics').select('g').selectAll('rect').data(demographic_distribution);
 			
-			var rectangles = selection.enter().append('rect');
+			var rectangles2 = selection.enter().append('rect');
 			
-			rectangles.attr('width', BAR_WIDTH)
+			rectangles2.attr('width', BAR_WIDTH)
 			
-			rectangles.attr('x',function(d, i) 
+			rectangles2.attr('x',function(d, i) 
 			{
 				return i * BAR_WIDTH;
 			});
 			
-			rectangles.attr('height', function(d)
+			rectangles2.attr('height', function(d)
 			{
 				return (d.female / maxValue) * MAX_BAR_HEIGHT;
 			});
 
-			rectangles.attr('y', function(d) 
+			rectangles2.attr('y', function(d) 
 			{
 				return (1 - (d.male / maxValue)- (d.female / maxValue)) * MAX_BAR_HEIGHT;
 			});
-			rectangles.attr('fill', 'orange');
+			rectangles2.attr('fill', 'orange');
 		};
 		
 		function contour_lines(data)
@@ -328,8 +328,8 @@
 				}
 				death_line_graph();
 				console.log(demographic_distribution);
-				drawMaleBars().then(drawFemaleBars);
-				//drawFemaleBars();
+				drawMaleBars();//.then(drawFemaleBars);
+				drawFemaleBars();
 			});
 		});
 		
