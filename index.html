@@ -316,7 +316,7 @@
 		d3.csv('pumps.csv', function(myArrayOfObjects){
 			draw_circles(myArrayOfObjects);
 		});
-	
+		
 		function death_rectangles()
 		{
 		
@@ -337,7 +337,7 @@
 			
 			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
 				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
-			
+			console.log(rectangles.date)
 			rectangles.exit().remove();
 		
 		};
@@ -400,8 +400,8 @@
 				.attr("id", function(d) { return d.deathdate; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
-					let d2 = d3.select('svg#map').selectAll('rect.deaths')
-						d2.filter(function(data) {
+					d3.selectAll('rect.deaths')
+						.filter(function(data) {
 							console.log(+data.date.substr(4))
 							return +data.date.substr(4) > +d.day;
 						})
