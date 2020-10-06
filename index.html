@@ -243,8 +243,10 @@
 						// Count the deaths on each deathDay by demographic.
 						if (deaths[deathId].gender == "male") {
 							maleCount++;
+							demographic_distribution[deaths[deathId].age].male++;
 						} else {
 							femaleCount++;
+							demographic_distribution[deaths[deathId].age].female++;
 						}
 						ageCount[deaths[deathId].age]++;
 						
@@ -263,6 +265,7 @@
 			
 				}
 				death_line_graph();
+				console.log(demographic_distribution)
 			});
 		});
 		
