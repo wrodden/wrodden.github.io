@@ -101,7 +101,7 @@
 			
 			var rectangles = svg.selectAll('rect.deaths').data(deaths);
 			
-			let colors = {female:'orange',male:'blue'}
+			//let colors = {female:'orange',male:'blue'}
 			
 			rectangles.enter().append('rect')
 				.attr('id', function(d,i){return i;})
@@ -112,7 +112,9 @@
 				//.attr('age', function(d){return d.age;})
 				.attr('height', 4)
 				.attr('width', 4)
-				.attr('fill',function(d){return colors[d.gender];});
+				.attr('fill',function(d){if (d.gender == 'male') {return 'blue'}
+										else {return 'orange };
+				});
 			
 			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
 				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
