@@ -400,8 +400,8 @@
 				.attr("id", function(d) { return d.deathdate; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
-					d3.select('svg#map').selectAll('rect.deaths')
-						.filter(function(data) {
+					let d2 = d3.select('svg#map').selectAll('rect.deaths')
+						d2.filter(function(data) {
 							console.log(+data.date.substr(4))
 							return +data.date.substr(4) > +d.day;
 						})
