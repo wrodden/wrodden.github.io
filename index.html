@@ -240,6 +240,10 @@
 			var rectangles = svg.selectAll('rect.deaths').data(data);
 			
 			rectangles.enter().append('rect')
+				.attr('id', function(d,i){return i;})
+				.attr('date', function(d){return d.deathday;})
+				.attr('gender', function(d){return d.gender;})
+				.attr('age', function(d){return d.age;})
 				.attr('height', 4)
 				.attr('width', 4)
 				.attr('fill','orange');
