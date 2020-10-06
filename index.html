@@ -98,9 +98,9 @@
 		
 		var svg = d3.select('svg#map').select('g')
 		
-		var rectangles = svg.selectAll('rect').data(data);
+		var rectangles = svg.selectAll('rect.death_marks').data(data);
 		
-		rectangles.enter().append('rect')
+		rectangles.enter().append('rect.death_marks')
 			.attr('height', 3)
 			.attr('width', 3)
 			.attr('fill','orange');
