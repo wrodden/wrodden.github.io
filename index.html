@@ -105,7 +105,7 @@
 			
 			var selection = d3.select('svg#demographics').select('g').selectAll('rect.bar1').data(demographic_distribution);
 			
-			var rectangles = selection.enter().append('rect.bar1');
+			var rectangles = selection.enter().append('rect');
 			
 			rectangles.attr('width', BAR_WIDTH)
 				.attr('x',function(d, i) 
@@ -134,7 +134,7 @@
 			
 			var selection = d3.select('svg#demographics').select('g').selectAll('rect.bar2').data(demographic_distribution);
 			
-			var rectangles2 = selection.enter().append('rect.bar2');
+			var rectangles2 = selection.enter().append('rect');
 			
 			rectangles2.attr('width', BAR_WIDTH)
 			
