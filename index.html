@@ -94,6 +94,32 @@
 		}
 		];
 		
+		function gender_filter()
+		{
+			d3.select('svg#map').selectAll('rect.deaths').remove();
+			var svg = d3.select('svg#map').select('g')
+			
+			var rectangles = svg.selectAll('rect.deaths').data(deaths);
+			
+			let colors = {female:'orange',male:'blue'}
+			
+			rectangles.enter().append('rect')
+				.attr('id', function(d,i){return i;})
+				.attr('class', function(d){
+					return 'gender ' +d.gender + ' '  + 'age' + d.age + ' ' + 'date' + d.deathday;
+					})
+				//.attr('gender', function(d){return d.gender;})
+				//.attr('age', function(d){return d.age;})
+				.attr('height', 4)
+				.attr('width', 4)
+				.attr('fill',function(d){return colors[d.gender];});
+			
+			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
+				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
+			
+			rectangles.exit().remove();
+		};
+		
 		function drawMaleBars() 
 		{
 			
