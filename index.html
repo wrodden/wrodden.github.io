@@ -372,6 +372,7 @@
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
+							console.log(+data.date.substr(4))
 							return +data.date.substr(4) > +d.day;
 						})
 						.attr('visibility','hidden');
