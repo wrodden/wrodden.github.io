@@ -90,6 +90,7 @@
 		{
 			
 			var BAR_WIDTH = 30
+			var MAX_BAR_HEIGHT = 300
 			var maxValue = 174;
 			
 			console.log(maxValue);
@@ -120,6 +121,7 @@
 		{
 			
 			var BAR_WIDTH = 30
+			var MAX_BAR_HEIGHT = 300
 			var maxValue = 174;
 			
 			console.log(maxValue);
@@ -142,7 +144,7 @@
 
 			rectangles.attr('y', function(d) 
 			{
-				return (1 - (d.male / maxValue)- (d.female / maxValue) * MAX_BAR_HEIGHT;
+				return (1 - (d.male / maxValue)- (d.female / maxValue) * MAX_BAR_HEIGHT
 			});
 		};
 		
