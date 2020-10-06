@@ -401,8 +401,8 @@
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
-							console.log(+d.cumulative)
-							return +data.id > +d.cumulative;
+							//console.log(+d.cumulative)
+							return data.date > d.day;
 						})
 						.attr('visibility','hidden');
 				})
