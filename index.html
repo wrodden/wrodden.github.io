@@ -325,7 +325,7 @@
 			var rectangles = svg.selectAll('rect.deaths').data(deaths);
 			
 			rectangles.enter().append('rect')
-				.attr('id', function(d){d.deathday;})
+				.attr('id', function(d,i){return i;})
 				.attr('class', function(d){
 					return 'gender ' +d.gender + ' '  + 'age' + d.age + ' ' + 'date' + d.deathday;
 					})
@@ -401,8 +401,8 @@
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
-							//console.log(+data.id.substr(4))
-							return +data.id > +d.day;
+							console.log(+data.date.substr(4))
+							return +data.date.substr(4) > +d.day;
 						})
 						.attr('visibility','hidden');
 				})
