@@ -1,0 +1,34 @@
+Project 1 Documentation
+Wilson Rodden
+
+This design was particularly difficult given my lack of experience in JavaScript and D3. As with any design process, 
+I started by “doodling” what I would like the result to show. I would include a snapshot of the design, but it has been 
+scribbled over with revisions.
+
+With the initial design in hand, it was time to evaluate the structure of the data and overcome the first hurdle—drawing 
+the map. Given what we had gone over in class I considered drawing individual lines from point to point, as we had yet 
+to review paths in D3. I ended up running across a brief explanation of paths in a web article, then Professor Reda 
+mentioned it would be the best path forward regarding the map. 
+
+Originally the map streets were blue before I had decided on blue and orange as the color palette for gender mapping. 
+This was changed to gray so it would be easy to distinguish the colors from the map background. 
+
+Nothing special happened with the line chart since we were directly told what was expected for it. 
+
+The distribution was more fun—creating a stacked bar chart demonstrating the distribution of genders among age groups overall. 
+This enables the viewer to see that while there does not appear to be much of a difference between gender deaths 
+(relatively evenly distributed across groups) there does appear to be a disproportionate impact on the young and elderly. 
+
+One of my goals in creating the map with the link to the line graph was to have the mouseover effect work even after 
+the gender and age filters were applied. This was relatively easy as I simply made sure that the functions for the 
+two were completely separate and I would not have to reprogram the effects as long as my script was structured correctly.
+
+The color schemes in general were chosen to be easy to distinguish from each other, given the focus on accessibility 
+for this assignment. I hadn’t started this assignment with many assumptions as we had already reviewed this visualization 
+in class. It made sense to me that older people would be more susceptible to the disease, however the children being hit 
+hard was a slight surprise. It does make sense though as their bodies are weak and may not be able to fend off that level 
+of toxicity.
+
+Given more time on this assignment I would work towards restructuring my charts to fit in one page, include some street 
+names, and work on the zoom with pan functions. There were a few roadblocks that took up more time than anticipated so I 
+came up short on those points.
