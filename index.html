@@ -158,7 +158,7 @@
 			const yScale = d3.scale.linear().range([300, 0]);
 			
 			let yaxis = d3.svg.axis().scale(yScale).orient('left');//.tickFormat(function(d){return Math.round(d*143);}); 
-			let xaxis = d3.svg.axis().scale(xScale).orient('bottom').ticks(6).tickValues([0.093, 0.256, 0.419, 0.581, 0.744, 0.907]).tickFormat(function(d){return demographic_distribution[Math.round(d*7)].label;});
+			let xaxis = d3.svg.axis().scale(xScale).orient('bottom').ticks(6).tickValues([0.093, 0.256, 0.419, 0.581, 0.744, 0.907]).tickFormat(function(d){return demographic_distribution[Math.round(d*7)-1].label;});
 			
 			let demo_graph = d3.select('svg#demographics').select('g')
 			
