@@ -404,10 +404,10 @@
 							//console.log(+d.cumulative)
 						//	return data.date > d.day;
 						//})
-						.attr('visibility','hidden');
+						.attr('fill-opacity',0);
 				})
 				.on("mouseout", function(d) {
-					d3.select('svg#map').select('g').selectAll("rect.deaths").enter().append('rect').attr("visibility","visible");
+					d3.select('svg#map').select('g').selectAll("rect.deaths").enter().append('rect').attr("fill-opacity",1);
 				})
 				.append("title")
 				.text(function(d) {
