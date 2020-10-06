@@ -95,9 +95,9 @@
 			
 			console.log(maxValue);
 			
-			var selection = d3.select('svg#demographics').select('g').selectAll('rect').data(demographic_distribution);
+			var selection = d3.select('svg#demographics').select('g').selectAll('rect.bar1').data(demographic_distribution);
 			
-			var rectangles = selection.enter().append('rect');
+			var rectangles = selection.enter().append('rect.bar1');
 			
 			rectangles.attr('width', BAR_WIDTH)
 				.attr('x',function(d, i) 
@@ -113,21 +113,6 @@
 					return (1 - (d.male / maxValue)) * MAX_BAR_HEIGHT;
 				})
 				.attr('fill', 'blue');
-			
-			rectangles.attr('width', BAR_WIDTH)
-				.attr('x',function(d, i) 
-				{
-					return i * BAR_WIDTH;
-				})
-				.attr('height', function(d)
-				{
-					return (d.female / maxValue) * MAX_BAR_HEIGHT;
-				})
-				.attr('y', function(d) 
-				{
-					return (1 - (d.male / maxValue)- (d.female / maxValue)) * MAX_BAR_HEIGHT;
-				})
-				.attr('fill', 'orange');
 		};
 		
 		function drawFemaleBars() 
@@ -139,9 +124,9 @@
 			
 			console.log(maxValue);
 			
-			var selection = d3.select('svg#demographics').select('g').selectAll('rect').data(demographic_distribution);
+			var selection = d3.select('svg#demographics').select('g').selectAll('rect.bar2').data(demographic_distribution);
 			
-			var rectangles2 = selection.enter().append('rect');
+			var rectangles2 = selection.enter().append('rect.bar2');
 			
 			rectangles2.attr('width', BAR_WIDTH)
 			
