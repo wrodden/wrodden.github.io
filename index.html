@@ -402,7 +402,7 @@
 					d3.select('svg#map').selectAll('rect')//.attr('fill-opacity',0);
 						.filter(function(data) {
 							//console.log(+d.cumulative)
-							return +data.date.substr(4) > +d.day;
+							return +data.attr('class').substr(4) > +d.day;
 						})
 						.attr('fill-opacity',0);
 				})
