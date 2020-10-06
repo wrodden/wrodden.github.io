@@ -400,10 +400,10 @@
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
-						.filter(function(data) {
+						//.filter(function(data) {
 							//console.log(+d.cumulative)
-							return data.date > d.day;
-						})
+						//	return data.date > d.day;
+						//})
 						.attr('visibility','hidden');
 				})
 				.on("mouseout", function(d) {
