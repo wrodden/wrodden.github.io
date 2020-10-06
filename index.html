@@ -31,6 +31,7 @@
 	</svg>
 	
 	<svg id="graph" width="700" height="400">
+		<text id='label' x='20' y='20'>Time Series Charts</text>
 		<g transform="translate(20,40)"></g>
 	</svg>
 	
@@ -126,7 +127,7 @@
 			
 			let pathfinder = d3.svg.line()
 				.x(function(d) { return 50+(d.day / 42)* 500; })
-				.y(function(d) { return 350 - ((d.total/ 143)*300); });
+				.y(function(d) { return 300 - ((d.total/ 143)*250); });
 
 			graph.append('path')
 				//.attr('class', 'graphline')
@@ -136,14 +137,14 @@
 				.attr('fill', 'none');
 			
 			const xScale = d3.scale.linear().range([50,550]);
-			const yScale = d3.scale.linear().range([350, 50]);
+			const yScale = d3.scale.linear().range([300, 50]);
 			
 			let yaxis = d3.svg.axis().scale(yScale).orient('left').tickFormat(function(d){return Math.round(d*143);}); 
 			let xaxis = d3.svg.axis().scale(xScale).orient('bottom').tickFormat(function(d){return death_days[d*40].deathdate;});
 			
 			graph.append("g")
 				.attr("class", "axis")
-				.attr("transform", "translate(0," + 350 + ")")
+				.attr("transform", "translate(0," + 300 + ")")
 				.attr('stroke-width', 4)
 				.call(xaxis);
 
