@@ -154,6 +154,26 @@
 				return (1 - (d.male / maxValue)- (d.female / maxValue)) * MAX_BAR_HEIGHT;
 			});
 			rectangles2.attr('fill', 'orange');
+			const xScale = d3.scale.linear().range([0,300]);
+			const yScale = d3.scale.linear().range([250, 0]);
+			
+			let yaxis = d3.svg.axis().scale(yScale).orient('left');//.tickFormat(function(d){return Math.round(d*143);}); 
+			let xaxis = d3.svg.axis().scale(xScale).orient('bottom');//.tickFormat(function(d){return death_days[d*40].deathdate;});
+			
+			let demo_graph = d3.select('svg#demographics').select('g')
+			
+			demo_graph.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0," + 250 + ")")
+				.attr('stroke-width', 4)
+				.call(xaxis);
+
+			demo_graph.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0, 0)")
+				.attr('stroke-width', 3)
+				.call(yaxis);
+			;
 		};
 		
 		function contour_lines(data)
