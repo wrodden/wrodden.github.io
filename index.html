@@ -144,7 +144,7 @@
 			rectangles.attr('x', function(d){return (d.x-8.280715)/9.658215 * 400 +195; })
 				.attr('y', function(d){return 600 - ((d.y-6.090047)/10.88271 * 400)-65;});
 			//var genders = ['Male','Female']
-			var key_markers = d3.select('svg#legend').select('g')
+			var key_markers = d3.select('svg#legend')
 			key_markers.selectAll('rect.m').enter().append('rect')
 				.attr('x', 100)
 				.attr('y', 10)
