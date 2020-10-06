@@ -369,7 +369,7 @@
 				.attr("stroke-width", "0")
 				.attr("id", function(d) { return d.deathdate; })
 				.attr("class", "time_window")
-				.on("mouseover", function(d) {
+				.on("click", function(d) {
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
 							console.log(+data.date.substr(4))
