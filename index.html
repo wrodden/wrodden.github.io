@@ -397,7 +397,7 @@
 				.attr("fill-opacity", "1")
 				.attr("stroke", "none")
 				.attr("stroke-width", "0")
-				.attr("id", function(d) { console.log(d.day) return d.deathdate; })
+				.attr("id", function(d) { console.log(d.day); }) //return d.deathdate; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
 					d3.selectAll('rect.deaths')
