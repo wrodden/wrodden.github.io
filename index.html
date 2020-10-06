@@ -399,7 +399,7 @@
 				.attr("id", function(d) { return d.day; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
-					d3.select('svg#map').select('g').selectAll('rect.deaths').enter().append('rect')
+					d3.select('svg#map').selectAll('rect').enter().append('rect')
 						//.filter(function(data) {
 							//console.log(+d.cumulative)
 						//	return data.date > d.day;
@@ -407,7 +407,7 @@
 						.attr('fill-opacity',0);
 				})
 				.on("mouseout", function(d) {
-					d3.select('svg#map').select('g').selectAll("rect.deaths").enter().append('rect').attr("fill-opacity",1);
+					d3.select('svg#map').selectAll("rect").enter().append('rect').attr("fill-opacity",1);
 				})
 				.append("title")
 				.text(function(d) {
