@@ -154,7 +154,7 @@
 				return (1 - (d.male / maxValue)- (d.female / maxValue)) * MAX_BAR_HEIGHT;
 			});
 			rectangles2.attr('fill', 'orange');
-			const xScale = d3.scale.linear().range([0,300]);
+			const xScale = d3.scale.linear().range([0,215]);
 			const yScale = d3.scale.linear().range([300, 0]);
 			
 			let yaxis = d3.svg.axis().scale(yScale).orient('left');//.tickFormat(function(d){return Math.round(d*143);}); 
