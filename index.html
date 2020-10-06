@@ -404,10 +404,10 @@
 							//console.log(d)
 							return +data.deathday > +d.day;
 						})
-						.attr('fill-opacity',0);
+						.attr('visibility','hidden');
 				})
 				.on("mouseout", function(d) {
-					d3.select('svg#map').selectAll("rect").attr("fill-opacity",1);
+					d3.select('svg#map').selectAll("rect").attr('visibility','hidden');
 				})
 				.append("title")
 				.text(function(d) {
