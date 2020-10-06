@@ -41,6 +41,52 @@
 	</svg>
 	
 	<script>
+		let demographic_distribution = [
+		
+		{
+		label: '0-10',
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		},
+		{
+		label: '11-20',
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		},
+		{
+		label: '21-40',
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		},
+		{
+		label: '41-60',
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		},
+		{
+		label: '61-80'
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		},
+		{
+		label: '80+'
+		color_m: 'blue',
+		male: 0,
+		color_f: 'orange',
+		female: 0
+		}
+		]
+		
 		
 		function contour_lines(data)
 		{
@@ -181,6 +227,8 @@
 					let maleCount = 0;
 					let femaleCount = 0;
 					let ageCount = [0,0,0,0,0,0];
+					let m_count_0 = 0;
+					let f_count_0
 					
 					// Find the highest number of deaths on any day,
 					// to set the vertical scale.
