@@ -402,7 +402,7 @@
 					d3.selectAll('rect.deaths')
 						.filter(function(data) {
 							console.log(+data.date.substr(4))
-							return +data.date.substr(4) > +d.day;
+							return +data.id > +d.cumulative;
 						})
 						.attr('visibility','hidden');
 				})
@@ -436,6 +436,7 @@
 				}
 			d3.csv("deathdays.csv", function(data) {
 				let deathId = 0;
+				let cumulative_total=0;
 				for (let day = 0; day < data.length; day++) {
 				
 					let totalCount = +data[day].deaths;
@@ -464,7 +465,7 @@
 							demographic_distribution[deaths[deathId].age].female++;
 						}
 						ageCount[deaths[deathId].age]++;
-						
+						cumulative_total++;
 						// Increment to the next individual death record.
 						deathId++;
 					}
@@ -476,6 +477,7 @@
 						male: maleCount,
 						female: femaleCount,
 						age: ageCount
+						cumulative: cumulative_total
 					});
 			
 				}
