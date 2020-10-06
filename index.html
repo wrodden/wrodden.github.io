@@ -115,6 +115,7 @@
 			{
 				return (1 - (d.male / maxValue)) * MAX_BAR_HEIGHT;
 			});
+			rectangles.attr('fill', 'blue');
 		};
 		
 		function drawFemaleBars() 
@@ -146,6 +147,7 @@
 			{
 				return (1 - (d.male / maxValue)- (d.female / maxValue)) * MAX_BAR_HEIGHT;
 			});
+			rectangles.attr('fill', 'orange');
 		};
 		
 		function contour_lines(data)
