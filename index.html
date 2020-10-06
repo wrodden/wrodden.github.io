@@ -399,12 +399,12 @@
 				.attr("id", function(d) { return d.day; })
 				.attr("class", "time_window")
 				.on("mouseover", function(d) {
-					d3.select('svg#map').selectAll('rect').attr('fill-opacity',0);
-						//.filter(function(data) {
-							//console.log(+d.cumulative)
-						//	return data.date > d.day;
-						//})
-						//.attr('fill-opacity',0);
+					d3.select('svg#map').selectAll('rect')//.attr('fill-opacity',0);
+						.filter(function(data) {
+							console.log(+d.cumulative)
+							return data.date > d.day;
+						})
+						.attr('fill-opacity',0);
 				})
 				.on("mouseout", function(d) {
 					d3.select('svg#map').selectAll("rect").attr("fill-opacity",1);
