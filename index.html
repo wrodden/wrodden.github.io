@@ -328,8 +328,8 @@
 				}
 				death_line_graph();
 				console.log(demographic_distribution);
-				drawMaleBars();
-				drawFemaleBars();
+				drawMaleBars().then(drawFemaleBars);
+				//drawFemaleBars();
 			});
 		});
 		
