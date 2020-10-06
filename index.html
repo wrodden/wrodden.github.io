@@ -290,7 +290,7 @@
 						.attr('visibility','hidden');
 				})
 				.on("mouseout", function(d) {
-					map.selectAll("rect.deaths").attr("visibility","visible");
+					d3.select('svg#map').selectAll("rect.deaths").attr("visibility","visible");
 				})
 				.append("title")
 				.text(function(d) {
